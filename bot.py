@@ -101,16 +101,7 @@ async def search_company(ctx: commands.Context, partita_iva: str):
         # Clean the partita_iva input (remove spaces and special characters)
         partita_iva = ''.join(filter(str.isdigit, partita_iva))
         
-        # Validate input
-        if not partita_iva.isdigit():
-            embed = discord.Embed(
-                title="❌ Errore di Validazione",
-                description="La Partita IVA deve contenere solo numeri.",
-                color=discord.Color.red()
-            )
-            await ctx.send(embed=embed)
-            return
-        
+        # Validate input length
         if len(partita_iva) != 11:
             embed = discord.Embed(
                 title="❌ Errore di Validazione",

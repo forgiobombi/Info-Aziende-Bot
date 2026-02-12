@@ -142,9 +142,10 @@ class CompanyEmbedFormatter:
         
         # Add sector/activity description
         if data.get('descrizione_attivita'):
+            descrizione = data['descrizione_attivita']
             embed.add_field(
                 name=f"{CompanyEmbedFormatter.EMOJIS['sector']} Attività",
-                value=data['descrizione_attivita'][:100] + ('...' if len(data.get('descrizione_attivita', '')) > 100 else ''),
+                value=descrizione[:100] + ('...' if len(descrizione) > 100 else ''),
                 inline=False
             )
         
